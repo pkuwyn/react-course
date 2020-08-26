@@ -1,0 +1,20 @@
+.app {
+    background-image: linear-gradient(to right bottom, $color-primary, $color-secondary);
+    background-repeat: no-repeat;
+
+    padding: 3rem;
+
+    display: grid;
+    grid-row-gap: 3rem;
+
+    &__title {
+        justify-self: center;
+        font-family: "Bigelow Rules", cursive;
+        font-size: 8rem;
+        font-weight: 700;
+        color: $color-secondary;
+    }
+    .search {
+        justify-self: center;
+    }
+}
