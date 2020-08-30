@@ -29,3 +29,12 @@ $bp4: 37.5em; //600px
     }
   }
 }
+
+//full background image
+@mixin bgimg-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-position: 50% 50%;
+  background-size: cover;
+}

@@ -1,0 +1,19 @@
+.collecion-preview {
+    display: flex;
+
+    flex-direction: column;
+
+    &__title {
+        align-self: flex-start;
+        font-size: 3rem;
+        padding-left: 1rem;
+    }
+
+    &__preview {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
+        grid-column-gap: 3rem;
+    }
+}

@@ -1,0 +1,45 @@
+.menu {
+    &__item {
+        border: var(--border-black);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover {
+            .menu__bgimage {
+                transform: scale(1.2);
+            }
+
+            .menu__content {
+                opacity: 1;
+                box-shadow: var(--shadow-dark);
+            }
+        }
+    }
+    &__bgimage {
+        @include bgimg-full;
+        transition: transform 0.5s;
+    }
+    &__content {
+        border: var(--border-black);
+        padding: 2rem;
+        text-align: center;
+        background-color: var(--color-grey-light-3);
+        z-index: 1;
+        opacity: 0.7;
+        transition: all 0.5s;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+    }
+
+    &__subtitle {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+    }
+}
