@@ -5,6 +5,12 @@ body {
   //   "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  padding: 2rem 4rem;
+
+  @include respond(max-bp3) {
+    padding: 2rem 0;
+  }
 }
 
 code {

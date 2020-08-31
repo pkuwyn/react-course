@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: var(--line);
+
+    & > * {
+        transition: all 0.3s;
+        &:hover {
+            transform: scale(1.2);
+            color: var(--color-secondary);
+            fill: var(--color-secondary);
+        }
+    }
+    &__logo {
+        &,
+        &:link,
+        &:visited {
+            margin-right: auto;
+            color: inherit;
+        }
+
+        &:focus,
+        &:active {
+        }
+
+        &-svg {
+            fill: red;
+        }
+    }
+
+    &__link {
+        &,
+        &:link,
+        &:visited {
+            padding: 0 1rem;
+            text-transform: uppercase;
+            color: inherit;
+        }
+
+        &:hover {
+        }
+
+        &:focus,
+        &:active {
+        }
+    }
+
+    &__icon {
+        fill: grey;
+        width: 2.5rem;
+        margin-left: 1rem;
+    }
+}

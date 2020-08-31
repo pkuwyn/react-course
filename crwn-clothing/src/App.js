@@ -14,6 +14,10 @@ import {
 import Homepage from "./pages/homepage";
 import ShopPage from "./pages/shoppage";
 
+//Header
+import Header from "./components/header";
+import HEADER_CONFIG from "./components/header.config";
+
 // function useAllRouteHooks() {
 //   let match = useRouteMatch();
 //   let location = useLocation();
@@ -30,6 +34,7 @@ import ShopPage from "./pages/shoppage";
 function App() {
   return (
     <Router>
+      <Header catalog={HEADER_CONFIG.catalog} />
       <Switch>
         <Route exact path="/" render={() => <Homepage />}></Route>
 

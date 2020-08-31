@@ -20,7 +20,10 @@
         }
     }
     &__bgimage {
-        @include bgimg-full;
+        @include bgimg;
+        width: 100%;
+        height: 100%;
+        position: absolute;
         transition: transform 0.5s;
     }
     &__content {
