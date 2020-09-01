@@ -1,0 +1,13 @@
+.form {
+    display: grid;
+
+    grid-template-columns: 100%;
+    grid-row-gap: 2rem;
+
+    &__title {
+        font-size: 3rem;
+    }
+    &__desp {
+        font-size: 2rem;
+    }
+}

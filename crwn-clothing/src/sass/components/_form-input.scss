@@ -1,0 +1,33 @@
+.form-input {
+    position: relative;
+
+    &:not(:last-child) {
+        margin-bottom: 5rem;
+    }
+    &__input {
+        width: 100%;
+        display: block;
+        font-size: 2rem;
+        font-family: inherit;
+        border: none;
+        border-bottom: var(--line-black);
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__label {
+        position: absolute;
+        left: 0;
+        bottom: 0.5rem;
+        font-size: 2rem;
+        transition: all 0.3s;
+    }
+
+    &__input:focus + &__label,
+    &__label-shrink {
+        font-size: 1rem;
+        bottom: unset;
+        top: -2rem;
+    }
+}

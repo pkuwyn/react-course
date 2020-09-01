@@ -18,4 +18,9 @@
 
         font-size: 2rem;
     }
+    &__name,
+    &__price {
+        color: var(--color-grey-dark-3);
+        font-weight: bold;
+    }
 }

@@ -13,7 +13,7 @@ import {
 //Pages
 import Homepage from "./pages/homepage";
 import ShopPage from "./pages/shoppage";
-
+import SignPage from "./pages/signpage";
 //Header
 import Header from "./components/header";
 import HEADER_CONFIG from "./components/header.config";
@@ -39,6 +39,7 @@ function App() {
         <Route exact path="/" render={() => <Homepage />}></Route>
 
         <Route path="/shop" component={ShopPage}></Route>
+        <Route path="/sign" component={SignPage}></Route>
       </Switch>
     </Router>
   );

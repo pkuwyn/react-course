@@ -1,9 +1,12 @@
 .header {
+    max-width: 150rem;
+    height: 7rem;
+    margin: auto;
     display: flex;
     align-items: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-    padding-bottom: 2rem;
+    padding: 1rem;
     border-bottom: var(--line);
 
     & > * {
@@ -12,6 +15,7 @@
             transform: scale(1.2);
             color: var(--color-secondary);
             fill: var(--color-secondary);
+            font-weight: bold;
         }
     }
     &__logo {

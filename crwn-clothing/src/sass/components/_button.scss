@@ -1,0 +1,27 @@
+.custom-button {
+    min-width: 15rem;
+    width: auto;
+    height: 5rem;
+    font-size: 1.5rem;
+    padding: 0 3.5rem;
+    line-height: 5rem;
+
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+        transform: scale(1.1) translateY(-0.5rem);
+        box-shadow: var(--shadow-dark);
+    }
+}
