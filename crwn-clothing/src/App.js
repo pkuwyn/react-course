@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,6 +9,8 @@ import {
   useLocation,
   useHistory,
 } from "react-router-dom";
+
+import { auth } from "./firebase/firebase.utils";
 
 //Pages
 import Homepage from "./pages/homepage";
@@ -32,16 +34,32 @@ import HEADER_CONFIG from "./components/header.config";
 // }
 
 function App() {
-  return (
-    <Router>
-      <Header catalog={HEADER_CONFIG.catalog} />
-      <Switch>
-        <Route exact path="/" render={() => <Homepage />}></Route>
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log(user);
+      setCurrentUser(user);
+    });
 
-        <Route path="/shop" component={ShopPage}></Route>
-        <Route path="/sign" component={SignPage}></Route>
-      </Switch>
-    </Router>
+    return () => {
+      console.log("clean up");
+      unsubscribe();
+    };
+  });
+  return (
+    <>
+      <Router>
+        <Header catalog={HEADER_CONFIG.catalog} user={currentUser} />
+        <Switch>
+          <Route exact path="/" render={() => <Homepage />}></Route>
+
+          <Route path="/shop" component={ShopPage}></Route>
+          <Route path="/sign" component={SignPage}></Route>
+        </Switch>
+      </Router>
+
+      <h1>currentUser:{JSON.stringify(currentUser)}</h1>
+    </>
   );
 }
 

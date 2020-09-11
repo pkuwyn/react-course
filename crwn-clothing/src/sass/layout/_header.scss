@@ -1,60 +1,72 @@
 .header {
-    max-width: 150rem;
-    height: 7rem;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-bottom: var(--line);
+  max-width: 150rem;
+  height: 7rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-bottom: var(--line);
 
-    & > * {
-        transition: all 0.3s;
-        &:hover {
-            transform: scale(1.2);
-            color: var(--color-secondary);
-            fill: var(--color-secondary);
-            font-weight: bold;
-        }
+  & > *:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  & > * {
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.2);
+      color: var(--color-secondary);
+      fill: var(--color-secondary);
+      font-weight: bold;
     }
-    &__logo {
-        &,
-        &:link,
-        &:visited {
-            margin-right: auto;
-            color: inherit;
-        }
-
-        &:focus,
-        &:active {
-        }
-
-        &-svg {
-            fill: red;
-        }
+  }
+  &__logo {
+    &,
+    &:link,
+    &:visited {
+      margin-right: auto;
+      color: inherit;
     }
 
-    &__link {
-        &,
-        &:link,
-        &:visited {
-            padding: 0 1rem;
-            text-transform: uppercase;
-            color: inherit;
-        }
-
-        &:hover {
-        }
-
-        &:focus,
-        &:active {
-        }
+    &:focus,
+    &:active {
     }
 
-    &__icon {
-        fill: grey;
-        width: 2.5rem;
-        margin-left: 1rem;
+    &-svg {
+      fill: red;
     }
+  }
+
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    &:hover {
+    }
+
+    &:focus,
+    &:active {
+    }
+  }
+
+  &__icon {
+    fill: grey;
+    width: 2.5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    object-position: 50% 50%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }

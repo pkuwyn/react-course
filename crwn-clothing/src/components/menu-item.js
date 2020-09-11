@@ -4,7 +4,6 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 const MenuItem = ({ title, size, imageUrl, linkUrl }) => {
   let history = useHistory();
   let match = useRouteMatch();
-  console.log(match, history);
   const handleClick = () => {
     history.push(`${match.url}${linkUrl}`);
   };

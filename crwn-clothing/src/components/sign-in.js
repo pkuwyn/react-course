@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import FormInput from "./form-input";
 import CustomButton from "./custom-button";
+import { signInWithGoogle } from "../firebase/firebase.utils";
 
+console.log(signInWithGoogle);
 const SignIn = () => {
   const [formValue, setFormValue] = useState({ email: "", password: "" });
 
@@ -46,9 +48,9 @@ const SignIn = () => {
             style={{
               backgroundColor: "rgb(66, 133, 244)",
             }}
+            onClick={signInWithGoogle}
           >
-            {" "}
-            Sign with Google{" "}
+            Sign with Google
           </CustomButton>
         </div>
       </form>
