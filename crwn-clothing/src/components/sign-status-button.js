@@ -6,7 +6,6 @@ const SignStatusButton = ({ user, styleClassName }) => {
   const handleClick = (e) => {
     e.preventDefault();
     auth.signOut();
-    console.log("logout");
   };
 
   return user ? (

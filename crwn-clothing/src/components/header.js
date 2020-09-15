@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/svg/crown.svg";
 
 import SignStatusButton from "./sign-status-button";
+
 // import { ReactComponent as DLogo } from "../assets/svg/globe.svg";
 
 const Header = ({ catalog, user }) => {
@@ -20,7 +21,6 @@ const Header = ({ catalog, user }) => {
       <svg className="header__icon">
         <use href="sprite.svg#icon-location-shopping"></use>
       </svg>
-
       {user ? <img src={user.photoURL} alt="" className="header__img" /> : null}
       {/* <DLogo className="header__logo-svg" />
 

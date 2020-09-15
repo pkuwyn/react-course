@@ -10,7 +10,11 @@ import {
   useHistory,
 } from "react-router-dom";
 
-import { auth } from "./firebase/firebase.utils";
+import {
+  auth,
+  firestore,
+  createUserProfileDocument,
+} from "./firebase/firebase.utils";
 
 //Pages
 import Homepage from "./pages/homepage";
@@ -35,17 +39,41 @@ import HEADER_CONFIG from "./components/header.config";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log(user);
-      setCurrentUser(user);
+    const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
+        });
+      } else {
+        setCurrentUser(userAuth);
+      }
     });
 
     return () => {
-      console.log("clean up");
       unsubscribe();
     };
   });
+
+  // useEffect(() => {
+  //   // firestore.collection("users").add({
+  //   //   diplayName: "Donald",
+  //   // });
+  //   firestore
+  //     .collection("users")
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       querySnapshot.forEach((doc) => {
+  //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+  //       });
+  //     });
+  // });
   return (
     <>
       <Router>
