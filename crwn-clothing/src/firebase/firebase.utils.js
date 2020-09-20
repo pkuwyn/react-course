@@ -30,13 +30,12 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
-    const { displayName, email, photoURL } = userAuth;
+    const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
       await userRef.set({
         displayName,
         email,
-        photoURL,
         createdAt,
         ...additionalData,
       });
@@ -44,8 +43,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
       console.log("error creating user", error.message);
     }
   }
+
   return userRef;
 };
+
 provider.setCustomParameters({ prompt: "select_account" });
 
 export const signInWithGoogle = () => {

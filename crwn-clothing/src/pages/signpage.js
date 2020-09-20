@@ -5,8 +5,7 @@ const SignPage = () => {
   return (
     <div className="signpage">
       <SignIn />
-      <SignIn />
-      {/* <SignUp /> */}
+      <SignUp />
     </div>
   );
 };
