@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/svg/crown.svg";
+import { connect } from "react-redux";
 
 import SignStatusButton from "./sign-status-button";
 
 // import { ReactComponent as DLogo } from "../assets/svg/globe.svg";
 
-const Header = ({ catalog, user }) => {
+const Header = ({ catalog, user, currentUser }) => {
   return (
     <header className="header">
       <Link className="header__logo" to="/">
@@ -27,8 +28,14 @@ const Header = ({ catalog, user }) => {
       <svg class="icon icon-trash">
         <use href="sprite.svg#icon-trash"></use>
       </svg> */}
+
+      {currentUser}
+      {user ? user.email : "user no login"}
     </header>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+export default connect(mapStateToProps)(Header);

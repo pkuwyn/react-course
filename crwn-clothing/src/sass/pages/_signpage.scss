@@ -1,10 +1,11 @@
 .signpage {
-    max-width: 120rem;
-    margin: auto;
-    padding: 4rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-    grid-gap: 4rem;
+  max-width: 120rem;
+  margin: auto;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-gap: 4rem;
 
-    justify-items: center;
+  justify-items: center;
+  align-items: start;
 }
