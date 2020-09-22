@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase/firebase.utils";
 
-const SignStatusButton = ({ user, styleClassName }) => {
+import { connect } from "react-redux";
+
+const SignStatusButton = ({ currentUser, styleClassName }) => {
   const handleClick = (e) => {
     e.preventDefault();
     auth.signOut();
   };
 
-  return user ? (
+  return currentUser ? (
     <a className={styleClassName} onClick={handleClick}>
       sign out
     </a>
@@ -19,4 +21,7 @@ const SignStatusButton = ({ user, styleClassName }) => {
   );
 };
 
-export default SignStatusButton;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+export default connect(mapStateToProps)(SignStatusButton);

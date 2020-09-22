@@ -24,6 +24,9 @@ import SignPage from "./pages/signpage";
 import Header from "./components/header";
 import HEADER_CONFIG from "./components/header.config";
 
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux";
+
 // function useAllRouteHooks() {
 //   let match = useRouteMatch();
 //   let location = useLocation();
@@ -37,9 +40,7 @@ import HEADER_CONFIG from "./components/header.config";
 //   return <h1>HatsPage</h1>;
 // }
 
-function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-
+function App({ currentUser, setCurrentUser }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -59,7 +60,7 @@ function App() {
     return () => {
       unsubscribe();
     };
-  });
+  }, []);
 
   // useEffect(() => {
   //   // firestore.collection("users").add({
@@ -77,7 +78,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header catalog={HEADER_CONFIG.catalog} user={currentUser} />
+        <Header catalog={HEADER_CONFIG.catalog} />
         <Switch>
           <Route exact path="/" render={() => <Homepage />}></Route>
 
@@ -91,4 +92,13 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

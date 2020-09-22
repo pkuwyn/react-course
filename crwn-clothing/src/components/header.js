@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import SignStatusButton from "./sign-status-button";
 
 // import { ReactComponent as DLogo } from "../assets/svg/globe.svg";
-
 const Header = ({ catalog, user, currentUser }) => {
   return (
     <header className="header">
@@ -18,7 +17,7 @@ const Header = ({ catalog, user, currentUser }) => {
           {title}
         </Link>
       ))}
-      <SignStatusButton user={user} styleClassName="header__link" />
+      <SignStatusButton styleClassName="header__link" />
       <svg className="header__icon">
         <use href="sprite.svg#icon-location-shopping"></use>
       </svg>
@@ -29,8 +28,8 @@ const Header = ({ catalog, user, currentUser }) => {
         <use href="sprite.svg#icon-trash"></use>
       </svg> */}
 
-      {currentUser}
-      {user ? user.email : "user no login"}
+      {JSON.stringify(currentUser)}
+      {/* {user ? user.email : "user no login"} */}
     </header>
   );
 };
@@ -38,4 +37,5 @@ const Header = ({ catalog, user, currentUser }) => {
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
 });
+
 export default connect(mapStateToProps)(Header);

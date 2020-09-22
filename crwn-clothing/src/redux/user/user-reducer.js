@@ -1,7 +1,12 @@
-import { SET_CURRENT_USER } from "./user-actions";
+import {
+  FETCH_USERS_REQUEST,
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_FAILURE,
+  SET_CURRENT_USER,
+} from "./user-types";
 
 const initialState = {
-  currentUser: "hello world",
+  currentUser: null,
 };
 
 const userReducer = (state = initialState, action) => {
