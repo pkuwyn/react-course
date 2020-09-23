@@ -15,6 +15,14 @@ html {
   }
 }
 
+body {
+  padding: 2rem 4rem;
+
+  @include respond(max-bp3) {
+    padding: 2rem 0;
+  }
+}
+
 a {
   &,
   &:link,

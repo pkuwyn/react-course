@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   Link,
   useRouteMatch,
   useParams,
@@ -62,19 +63,6 @@ function App({ currentUser, setCurrentUser }) {
     };
   }, []);
 
-  // useEffect(() => {
-  //   // firestore.collection("users").add({
-  //   //   diplayName: "Donald",
-  //   // });
-  //   firestore
-  //     .collection("users")
-  //     .get()
-  //     .then((querySnapshot) => {
-  //       querySnapshot.forEach((doc) => {
-  //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  //       });
-  //     });
-  // });
   return (
     <>
       <Router>
@@ -83,7 +71,28 @@ function App({ currentUser, setCurrentUser }) {
           <Route exact path="/" render={() => <Homepage />}></Route>
 
           <Route path="/shop" component={ShopPage}></Route>
-          <Route path="/sign" component={SignPage}></Route>
+
+          {/* <Route
+            exact
+            path="/signin"
+            render={() => {
+              return currentUser ? (
+                <Redirect
+                  to={{
+                    pathname: "/",
+                  }}
+                />
+              ) : (
+                <SignPage />
+              );
+            }}
+          ></Route> */}
+
+          {currentUser ? (
+            <Redirect to="/" />
+          ) : (
+            <Route exact path="/signin" component={SignPage}></Route>
+          )}
         </Switch>
       </Router>
 

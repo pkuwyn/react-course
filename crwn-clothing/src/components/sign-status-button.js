@@ -15,7 +15,7 @@ const SignStatusButton = ({ currentUser, styleClassName }) => {
       sign out
     </a>
   ) : (
-    <Link className={styleClassName} to="sign">
+    <Link className={styleClassName} to="signin">
       sign in
     </Link>
   );

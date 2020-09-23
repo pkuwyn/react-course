@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from "../assets/svg/crown.svg";
 import { connect } from "react-redux";
 
 import SignStatusButton from "./sign-status-button";
+import CartIcon from "./cart-icon";
 
 // import { ReactComponent as DLogo } from "../assets/svg/globe.svg";
 const Header = ({ catalog, user, currentUser }) => {
@@ -18,18 +19,8 @@ const Header = ({ catalog, user, currentUser }) => {
         </Link>
       ))}
       <SignStatusButton styleClassName="header__link" />
-      <svg className="header__icon">
-        <use href="sprite.svg#icon-location-shopping"></use>
-      </svg>
-      {user ? <img src={user.photoURL} alt="" className="header__img" /> : null}
-      {/* <DLogo className="header__logo-svg" />
-
-      <svg class="icon icon-trash">
-        <use href="sprite.svg#icon-trash"></use>
-      </svg> */}
-
-      {JSON.stringify(currentUser)}
-      {/* {user ? user.email : "user no login"} */}
+      <CartIcon styleClassName="header__icon" itemNum={8} />
+      {/* {JSON.stringify(currentUser)} */}
     </header>
   );
 };
