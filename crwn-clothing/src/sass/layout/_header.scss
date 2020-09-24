@@ -14,7 +14,7 @@
     margin-right: 2rem;
   }
 
-  & > * {
+  & > *:not(.no-hover) {
     transition: all 0.3s;
     &:hover {
       // transform: scale(1.2);
@@ -54,8 +54,6 @@
   }
 
   &__icon {
-    cursor: pointer;
-    width: 2.5rem;
   }
 
   &__img {

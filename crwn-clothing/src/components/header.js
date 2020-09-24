@@ -19,7 +19,7 @@ const Header = ({ catalog, user, currentUser }) => {
         </Link>
       ))}
       <SignStatusButton styleClassName="header__link" />
-      <CartIcon styleClassName="header__icon" itemNum={8} />
+      <CartIcon />
       {/* {JSON.stringify(currentUser)} */}
     </header>
   );

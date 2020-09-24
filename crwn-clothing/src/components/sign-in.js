@@ -46,8 +46,12 @@ const SignIn = () => {
         />
 
         <div className="parallel">
-          <CustomButton type="submit"> Sign in </CustomButton>
+          <CustomButton type="submit" className="hover-scale-button">
+            {" "}
+            Sign in{" "}
+          </CustomButton>
           <CustomButton
+            className="hover-scale-button"
             type="button"
             style={{
               backgroundColor: "rgb(66, 133, 244)",

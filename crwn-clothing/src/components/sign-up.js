@@ -84,7 +84,9 @@ const SignUp = () => {
           label="Confirm Password"
           required
         />
-        <CustomButton type="submit">SIGN UP</CustomButton>
+        <CustomButton type="submit" className="hover-scale-button">
+          SIGN UP
+        </CustomButton>
       </form>
     </div>
   );

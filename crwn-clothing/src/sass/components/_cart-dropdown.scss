@@ -12,10 +12,11 @@
   justify-content: space-around;
   align-items: center;
   border: var(--border-black);
+  cursor: auto;
 
   &__items {
     height: 24rem;
-
+    overflow: auto;
     display: flex;
     flex-direction: column;
   }

@@ -1,22 +1,22 @@
-//action creator
-const SET_CURRENT_USER = "SET_CURRENT_USER";
-function setCurrentUser(payload) {
-  return {
-    type: "SET_CURRENT_USER",
-    payload,
-  };
-}
-
+import { TOGGLE_CART_HIDDEN, ADD_ITEM } from "./cart-types";
+import { addItemToCart } from "./cart-utils";
 const initialState = {
-  currentUser: null,
+  hidden: true,
+  cartItems: [],
 };
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CURRENT_USER:
+    case TOGGLE_CART_HIDDEN:
       return {
         ...state,
-        currentUser: action.payload,
+        hidden: !state.hidden,
+      };
+
+    case ADD_ITEM:
+      return {
+        ...state,
+        cartItems: addItemToCart(state.cartItems, action.payload),
       };
 
     default:

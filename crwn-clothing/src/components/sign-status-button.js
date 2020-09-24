@@ -11,7 +11,7 @@ const SignStatusButton = ({ currentUser, styleClassName }) => {
   };
 
   return currentUser ? (
-    <a className={styleClassName} onClick={handleClick}>
+    <a className={styleClassName} onClick={handleClick} href="./">
       sign out
     </a>
   ) : (
