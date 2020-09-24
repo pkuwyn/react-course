@@ -1,30 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import CartDropdown from "./cart-dropdown";
-import { toggleCartHidden } from "../redux";
-
+import {
+  toggleCartHidden,
+  selectCartItemsCount,
+  selectCartHidden,
+} from "../redux";
 const CartIcon = ({ hidden, toggleCartHidden, cartItemsCount }) => {
   return (
-    <div className={`cart-icon no-hover `} onClick={toggleCartHidden}>
+    <div className={`cart-icon no-hover `}>
       <svg className="cart-icon__svg">
         <use href="sprite.svg#icon-location-shopping"></use>
       </svg>
-      <span className="cart-icon__count">{cartItemsCount}</span>
+      <span className="cart-icon__count" onClick={toggleCartHidden}>
+        {cartItemsCount}
+      </span>
       {hidden ? null : <CartDropdown />}
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  console.log("mapStateToProps called");
-  return {
-    hidden: state.cart.hidden,
-    cartItemsCount: state.cart.cartItems.reduce(
-      (acc, item) => acc + item.quantity,
-      0
-    ),
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  hidden: selectCartHidden,
+  cartItemsCount: selectCartItemsCount,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {

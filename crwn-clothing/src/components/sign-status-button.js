@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase/firebase.utils";
+import { createStructuredSelector } from "reselect";
 
+import { auth } from "../firebase/firebase.utils";
+import { selectCurrentUser } from "../redux";
 import { connect } from "react-redux";
 
 const SignStatusButton = ({ currentUser, styleClassName }) => {
@@ -20,8 +22,8 @@ const SignStatusButton = ({ currentUser, styleClassName }) => {
     </Link>
   );
 };
-
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 });
+
 export default connect(mapStateToProps)(SignStatusButton);

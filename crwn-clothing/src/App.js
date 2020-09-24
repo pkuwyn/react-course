@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { createStructuredSelector } from "reselect";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,12 +23,14 @@ import {
 import Homepage from "./pages/homepage";
 import ShopPage from "./pages/shoppage";
 import SignPage from "./pages/signpage";
+import CheckOutPage from "./pages/checkoutpage";
+
 //Header
 import Header from "./components/header";
 import HEADER_CONFIG from "./components/header.config";
 
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux";
+import { setCurrentUser, selectCurrentUser } from "./redux";
 
 // function useAllRouteHooks() {
 //   let match = useRouteMatch();
@@ -93,16 +97,18 @@ function App({ currentUser, setCurrentUser }) {
           ) : (
             <Route exact path="/signin" component={SignPage}></Route>
           )}
+
+          <Route exact path="/checkout" component={CheckOutPage}></Route>
         </Switch>
       </Router>
 
-      <h1>currentUser:{JSON.stringify(currentUser)}</h1>
+      {/* <h1>currentUser:{JSON.stringify(currentUser)}</h1> */}
     </>
   );
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => {

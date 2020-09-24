@@ -4,7 +4,7 @@ import { addItem } from "../redux";
 
 import CustomButton from "./custom-button";
 
-const CollectionItem = ({ item, cartItems, addItem }) => {
+const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
   return (
     <div className="collection-item">
@@ -30,13 +30,9 @@ const CollectionItem = ({ item, cartItems, addItem }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  cartItems: state.cart.cartItems,
-});
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addItem: (item) => dispatch(addItem(item)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
+export default connect(null, mapDispatchToProps)(CollectionItem);

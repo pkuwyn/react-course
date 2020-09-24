@@ -1,0 +1,52 @@
+.checkout {
+  font-size: 2rem;
+  width: 60%;
+  min-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem auto;
+
+  @include respond(max-bp3) {
+    width: 80%;
+  }
+
+  @include respond(max-bp4) {
+    width: 95%;
+  }
+
+  & > *:not(:last-child) {
+    padding: 1rem 0;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__text {
+      display: block;
+      width: 23%;
+
+      &:last-child {
+        width: 8%;
+      }
+    }
+  }
+
+  &__item {
+  }
+
+  &__footer {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__total {
+    font-size: 3.6rem;
+  }
+}
