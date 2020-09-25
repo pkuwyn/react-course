@@ -18,6 +18,13 @@
     width: 23%;
   }
 
+  &__action {
+    cursor: pointer;
+  }
+
+  &__quantity {
+    margin: 0 1rem;
+  }
   &__button {
     width: 8%;
     text-align: center;

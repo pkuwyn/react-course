@@ -32,6 +32,9 @@ import HEADER_CONFIG from "./components/header.config";
 import { connect } from "react-redux";
 import { setCurrentUser, selectCurrentUser } from "./redux";
 
+//Test
+
+import Test from "./Test";
 // function useAllRouteHooks() {
 //   let match = useRouteMatch();
 //   let location = useLocation();
@@ -103,6 +106,8 @@ function App({ currentUser, setCurrentUser }) {
       </Router>
 
       {/* <h1>currentUser:{JSON.stringify(currentUser)}</h1> */}
+
+      {/* <Test></Test> */}
     </>
   );
 }

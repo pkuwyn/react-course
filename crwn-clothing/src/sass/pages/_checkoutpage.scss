@@ -7,7 +7,9 @@
   flex-direction: column;
   align-items: center;
   margin: 5rem auto;
-
+  & > *:not(:last-child) {
+    border-bottom: var(--line);
+  }
   @include respond(max-bp3) {
     width: 80%;
   }
