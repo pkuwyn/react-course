@@ -1,6 +1,6 @@
 const HEADER_CONFIG = {
   catalog: [
-    { title: "shop", route: "shop" },
+    { title: "shop", route: "/shop" },
     { title: "contact", route: "" },
   ],
 };

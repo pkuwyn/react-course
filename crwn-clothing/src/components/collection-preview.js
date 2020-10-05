@@ -1,10 +1,14 @@
 import React from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 import CollectionItem from "./collection-item";
 
-const CollectionPreview = ({ title, items }) => {
+const CollectionPreview = ({ title, items, routeName }) => {
+  const { url } = useRouteMatch();
   return (
     <div className="collecion-preview">
-      <h1 className="collecion-preview__title">{title}</h1>
+      <h1 className="collecion-preview__title">
+        <Link to={`${url}/${routeName}`}>{title}</Link>
+      </h1>
 
       <div className="collecion-preview__preview">
         {items

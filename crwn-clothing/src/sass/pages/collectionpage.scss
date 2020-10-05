@@ -1,0 +1,17 @@
+.collectionpage {
+    padding: 1rem;
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    &__items {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+    }
+}

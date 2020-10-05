@@ -34,7 +34,7 @@ import { setCurrentUser, selectCurrentUser } from "./redux";
 
 //Test
 
-import Test from "./Test";
+// import Test from "./Test";
 // function useAllRouteHooks() {
 //   let match = useRouteMatch();
 //   let location = useLocation();
@@ -79,29 +79,14 @@ function App({ currentUser, setCurrentUser }) {
 
           <Route path="/shop" component={ShopPage}></Route>
 
-          {/* <Route
+          <Route
             exact
             path="/signin"
-            render={() => {
-              return currentUser ? (
-                <Redirect
-                  to={{
-                    pathname: "/",
-                  }}
-                />
-              ) : (
-                <SignPage />
-              );
-            }}
-          ></Route> */}
-
-          {currentUser ? (
-            <Redirect to="/" />
-          ) : (
-            <Route exact path="/signin" component={SignPage}></Route>
-          )}
+            render={() => (currentUser ? <Redirect to="/" /> : <SignPage />)}
+          ></Route>
 
           <Route exact path="/checkout" component={CheckOutPage}></Route>
+          <Route render={() => <h3>Not Found</h3>}></Route>
         </Switch>
       </Router>
 

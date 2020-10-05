@@ -1,11 +1,10 @@
 import React from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const MenuItem = ({ title, size, imageUrl, linkUrl }) => {
   let history = useHistory();
-  let match = useRouteMatch();
   const handleClick = () => {
-    history.push(`${match.url}${linkUrl}`);
+    history.push(`/shop/${linkUrl}`);
   };
   return (
     <div className="menu__item" onClick={handleClick}>
